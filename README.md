@@ -186,7 +186,7 @@ master (protected)
 
 ## Author
 
-**Mohammed Asim Zain** — Automation Engineer transitioning AI automation
+**Mohammed Asim Zain** — Quality Engineer building automation skills with Playwright + TypeScript
 - GitHub: [@masimzain-11](https://github.com/masimzain-11)
 
 ---
