@@ -186,7 +186,7 @@ master (protected)
 
 ## Author
 
-**Mohammed Asim Zain** — Quality Engineer transitioning into Automation
+**Mohammed Asim Zain** — Automation Engineer transitioning AI automation
 - GitHub: [@masimzain-11](https://github.com/masimzain-11)
 
 ---
