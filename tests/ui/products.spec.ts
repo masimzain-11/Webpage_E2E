@@ -8,7 +8,6 @@ test.describe('Products Page Tests', () => {
 
     await productsPage.navigate();
     await productsPage.searchFor('pliers');
-
     const names = await productsPage.getProductNames();
     expect(names.length).toBeGreaterThan(0);
     expect(names[0].toLowerCase()).toContain('plier');

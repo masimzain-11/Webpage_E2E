@@ -86,6 +86,13 @@ export class CartPage extends BasePage {
     return await this.productQuantityInput.inputValue();
   }
 
+  async isProductTitleVisible(): Promise<boolean> {
+  return await this.productTitle.isVisible();
+}
+async getDetailPageQuantity(): Promise<string> {
+  return await this.quantityInput.inputValue();
+}
+
   async isProductNameVisible(expectedName: string): Promise<boolean> {
   await this.page.waitForSelector('[data-test="product-name"]', { state: 'visible' });
   const actualName = await this.productName.textContent();
