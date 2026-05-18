@@ -1,5 +1,7 @@
 # Webpage E2E — Playwright Automation Framework
 
+![Playwright Tests](https://github.com/masimzain-11/Webpage_E2E/actions/workflows/playwright.yml/badge.svg)
+
 End-to-end UI test automation framework built with Playwright and TypeScript using the Page Object Model (POM) design pattern. Tests run against [practicesoftwaretesting.com](https://practicesoftwaretesting.com), a real e-commerce application.
 
 ---
