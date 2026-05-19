@@ -106,12 +106,26 @@ async clickProductByName(productName: string): Promise<void> {
 }
 
 
-    async fillShippingDetails(country: string, postalCode: string, houseNumber: string) {
-        await this.countrySelect.selectOption(country);
-        await this.postalCodeInput.fill(postalCode);
-        await this.houseNumberInput.fill(houseNumber);
-        await this.proceed3Btn.click();
-    }   
+  async fillShippingDetails(
+  country: string,
+  postalCode: string,
+  houseNumber: string
+): Promise<void> {
+  await this.countrySelect.selectOption(country);
+  await this.postalCodeInput.fill(postalCode);
+  await this.houseNumberInput.fill(houseNumber);
+
+  // Wait for button to become enabled (max 10s)
+  await this.page.waitForFunction(
+    () => {
+      const btn = document.querySelector('[data-test="proceed-3"]') as HTMLButtonElement;
+      return btn && !btn.disabled;
+    },
+    { timeout: 10000 }
+  );
+
+  await this.proceed3Btn.click();
+} 
 
     async fillPaymentDetails(bankName: string, accountName: string, accountNumber: string) {
         await this.paymentMethodSelect.selectOption('bank-transfer');
