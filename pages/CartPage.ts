@@ -87,7 +87,12 @@ export class CartPage extends BasePage {
   }
 
   async isProductTitleVisible(): Promise<boolean> {
-  return await this.productTitle.isVisible();
+  try {
+    await this.productTitle.waitFor({ state: 'visible', timeout: 10000 });
+    return true;
+  } catch {
+    return false;
+  }
 }
 async getDetailPageQuantity(): Promise<string> {
   return await this.quantityInput.inputValue();
