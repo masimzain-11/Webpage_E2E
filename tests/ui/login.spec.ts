@@ -9,7 +9,7 @@ test.describe('Login Tests', () => {
     await loginPage.navigate();
     await loginPage.loginWith('admin@practicesoftwaretesting.com', 'welcome01');
 
-    await expect(page).toHaveURL('/account');
+    await expect(page).toHaveURL('/admin/dashboard');
   });
 
   test('login fails with invalid credentials', async ({ page }) => {
