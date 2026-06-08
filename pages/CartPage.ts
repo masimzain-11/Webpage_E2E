@@ -4,7 +4,7 @@ import { BasePage } from './BasePage';
 export class CartPage extends BasePage {
 
   // Product Detail Page Locators
-  private productName:          Locator;
+  private productName:          Locator;//datatype declaration for productName, which is a Locator object used to find the product name element on the page.
   private quantityInput:        Locator;
   private increaseQuantityBtn:  Locator;
   private decreaseQuantityBtn:  Locator;
@@ -59,7 +59,7 @@ export class CartPage extends BasePage {
   }
 
   async addToCart(times: number = 1) {
-    for (let i = 0; i < times; i++) {
+    for (let i: number = 0; i < times; i++) {
       await this.addToCartBtn.click();
     }
   }
