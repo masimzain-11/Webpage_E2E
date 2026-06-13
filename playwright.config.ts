@@ -4,7 +4,10 @@ export default defineConfig({
   testDir: './tests',
   timeout: 30000,
   retries: process.env.CI ? 1 : 0,
-  reporter: 'html',
+  reporter: [
+  ['html'],
+  ['json', { outputFile: 'test-results/results.json' }],
+  ],
 
   use: {
     baseURL: 'https://practicesoftwaretesting.com',
