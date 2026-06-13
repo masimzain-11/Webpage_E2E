@@ -1,14 +1,13 @@
 import { test, expect } from '@playwright/test';
-
-const API_BASE = 'https://api.practicesoftwaretesting.com';
+import { API_BASE, testUsers } from '../../fixtures/testData';
 
 test.describe('Authentication API', () => {
 
   test('POST /users/login returns token with valid credentials', async ({ request }) => {
     const response = await request.post(`${API_BASE}/users/login`, {
       data: {
-        email: 'customer@practicesoftwaretesting.com',
-        password: 'welcome01'
+        email: testUsers.customer.email,
+        password: testUsers.customer.password,
       }
     });
 
@@ -22,8 +21,8 @@ test.describe('Authentication API', () => {
   test('POST /users/login fails with wrong password', async ({ request }) => {
     const response = await request.post(`${API_BASE}/users/login`, {
       data: {
-        email: 'cusomer@practicesoftwaretesting.com',
-        password: 'definitely-wrong-password'
+        email: testUsers.customer.email,
+        password: 'definitely-wrong-password',
       }
     });
 
@@ -33,8 +32,8 @@ test.describe('Authentication API', () => {
   test('POST /users/login fails with non-existent email', async ({ request }) => {
     const response = await request.post(`${API_BASE}/users/login`, {
       data: {
-        email: 'nobody@nowhere.test',
-        password: 'anything'
+        email: testUsers.invalid.email,
+        password: testUsers.invalid.password,
       }
     });
 

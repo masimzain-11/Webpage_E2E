@@ -1,6 +1,5 @@
 import { test, expect } from '@playwright/test';
-
-const API_BASE = 'https://api.practicesoftwaretesting.com';
+import { API_BASE } from '../../fixtures/testData';
 
 test.describe('Products API', () => {
 

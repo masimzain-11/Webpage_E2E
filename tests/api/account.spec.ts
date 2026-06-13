@@ -1,17 +1,15 @@
 import { test, expect } from '@playwright/test';
-
-const API_BASE = 'https://api.practicesoftwaretesting.com';
+import { API_BASE, testUsers } from '../../fixtures/testData';
 
 test.describe('Account API (Authenticated)', () => {
 
   let accessToken: string;
 
-  // ─── Setup: Get a token BEFORE running tests ──────────────
   test.beforeAll(async ({ request }) => {
     const loginResponse = await request.post(`${API_BASE}/users/login`, {
       data: {
-        email: 'customer@practicesoftwaretesting.com',
-        password: 'welcome01'
+        email: testUsers.customer.email,
+        password: testUsers.customer.password,
       }
     });
     const body = await loginResponse.json();
@@ -28,7 +26,7 @@ test.describe('Account API (Authenticated)', () => {
     expect(response.status()).toBe(200);
 
     const user = await response.json();
-    expect(user.email).toBe('customer@practicesoftwaretesting.com');
+    expect(user.email).toBe(testUsers.customer.email);
     expect(user).toHaveProperty('first_name');
     expect(user).toHaveProperty('last_name');
   });
