@@ -38,3 +38,17 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 7
+
+      - name: Run AI Failure Analyst
+        if: failure()
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: npx ts-node agent/run.ts
+
+      - name: Upload AI failure report
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-failure-report
+          path: agent-reports/
+          retention-days: 7
